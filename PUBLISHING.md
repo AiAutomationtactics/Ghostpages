@@ -2,7 +2,7 @@
 
 Target: **five substantive, distinct reader-first guides per day for 20 days**, at most **100 articles** total (Oct 23–Nov 11, 2026, America/Vancouver). This is an editorial ceiling, **not** a spam-proof publishing rate or a promise of 100 indexed pages.
 
-We began with five authored guides. The subsequent 95 guides are AI-assisted drafts only if the owner adds a valid `OPENAI_API_KEY` GitHub Actions secret; this incurs API costs. No key = no new pages. GitHub Pages also needs to be enabled by the owner in repository Settings → Pages → Deploy from main /docs.
+We began with five authored guides. A ChatGPT scheduled task has been set up for the 19 subsequent daily batches through the connected GitHub account, and requires GitHub access at run time. As an optional parallel fallback, the GitHub Action can draft articles if the owner adds a valid `OPENAI_API_KEY` Actions secret; that route incurs API costs. Either route must check the same state file and daily quota; future success is not guaranteed. GitHub Pages also needs to be enabled by the owner in repository Settings → Pages → Deploy from main /docs.
 
 ## Reader-first policy
 - Each page has a distinct informational purpose; no audience-keyword-spun variants or doorway pages.
