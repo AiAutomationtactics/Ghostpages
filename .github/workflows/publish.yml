@@ -1,7 +1,8 @@
-name: Publish five reviewed-quality guides
+name: Publish up to five quality guides daily
 on:
   schedule:
-    - cron: '7 */2 * * *'
+    - cron: '17 9 * * *'
+      timezone: 'America/Vancouver'
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,7 +20,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Generate and validate five distinct articles
+      - name: Draft and validate up to five distinct articles
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python scripts/publish.py
