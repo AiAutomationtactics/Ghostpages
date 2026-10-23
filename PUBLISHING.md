@@ -1,15 +1,21 @@
-# Editorial publishing policy
+# Editorial policy, schedule and link selection
 
-This educational website must serve human readers first. Publishing 1,200 thin, mechanically generated articles can violate Google's scaled content abuse policy. The schedule is therefore a *maximum*, not a promise. If the generator cannot make five genuinely different, complete, useful pages, it stops without publishing.
+Target: **five substantive, distinct reader-first guides per day for 20 days**, at most **100 articles** total (Oct 23–Nov 11, 2026, America/Vancouver). This is an editorial ceiling, **not** a spam-proof publishing rate or a promise of 100 indexed pages.
 
-- Schedule: every 2 hours UTC, for at most 20 days after the recorded project start.
-- Maximum: 240 batches × 5 = 1,200 pages, including the five starter pages.
-- An optional paid OpenAI API key is required for ongoing original content drafting. GitHub Actions does not provide unlimited free AI generation.
-- Generated articles have unique topic/intent combinations, a practical worked example, a checklist, a comparison or decision framework, and non-duplicative descriptions.
-- No keyword stuffing, invented income claims, fabricated testimonials, guaranteed earnings, fake reviews, or misleading attribution.
-- Affiliate links are disclosed and `rel="sponsored noopener noreferrer"` is used.
-- Pages include titles, descriptions, semantic HTML, canonical URLs, structured Article JSON-LD, internal navigation and a sitemap.
-- Human fact review is still needed, especially when platforms change rules or fees. The workflow performs basic automated quality checks but cannot certify Google's assessment or truth of generated claims.
-- GitHub Pages: Settings → Pages → Deploy from branch `main` / `/docs`. The configured base URL is `https://aiautomationtactics.github.io/Ghostpages/`.
+We began with five authored guides. The subsequent 95 guides are AI-assisted drafts only if the owner adds a valid `OPENAI_API_KEY` GitHub Actions secret; this incurs API costs. No key = no new pages. GitHub Pages also needs to be enabled by the owner in repository Settings → Pages → Deploy from main /docs.
 
-**Activation:** Add repository secret `OPENAI_API_KEY`, then optionally run the workflow manually. The script will not auto-publish if missing the key or if validation fails. You can disable the schedule by deleting the workflow. GitHub scheduled jobs can run late or be skipped.
+## Reader-first policy
+- Each page has a distinct informational purpose; no audience-keyword-spun variants or doorway pages.
+- Publish guides with a useful process, concrete example, six meaningful actions, and limitations. Code checks page length, section structure and repeated exact copy, but **automated checks cannot verify all facts, originality, helpfulness, or Google compliance**.
+- No claims of guaranteed commissions, rankings, visits or earnings, invented statistics, or fabricated personal reviews.
+- No scraping, spun content, link wheels, keyword-stuffing or fake urgency.
+- Relevant external resources are optional, selectively chosen by article theme, and marked `rel="sponsored noopener noreferrer"` with a conspicuous affiliate disclosure. External links from memory are not presented as independently verified services.
+- Semantic headings, unique descriptive titles, mobile-friendly layout, navigation, canonical URLs, robots.txt and XML sitemap.
+- A human should periodically review generated pages, remove factual errors and consolidate articles that overlap before relying on them for search traffic.
+
+## Scheduling and limits
+GitHub Actions schedule: `17 9 * * *`, timezone `America/Vancouver`. The publisher calculates daily quota from October 23 and stops after November 11 or 100 total articles. Manual reruns cannot bypass the per-day cap. GitHub scheduled runs can be late or skipped.
+
+Website: https://aiautomationtactics.github.io/Ghostpages/ — available after GitHub Pages is enabled.
+
+Reference: https://developers.google.com/search/docs/essentials/spam-policies
