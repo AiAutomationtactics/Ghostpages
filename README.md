@@ -1,13 +1,21 @@
 # Practical Traffic Lab
 
-An educational, Google-friendly affiliate marketing resource. Pages are designed to help readers evaluate traffic channels, track outcomes, build opt-in funnels, and make realistic decisions. Some resource links are affiliate links and are clearly disclosed.
+Practical, reader-first guides about traffic measurement, opt-in funnels, ethical affiliate marketing, and search content.
 
-## Publishing plan
+## The 20-day plan
 
-- Target: up to five vetted pages per two-hour scheduled batch for 20 days, maximum 240 batches.
-- The publisher does **not** post filler when content is missing or a quality gate fails.
-- Pages are generated from distinct editorial briefs and checked before publication.
-- **To turn on AI-backed scheduled generation:** add the repository Actions secret `OPENAI_API_KEY` with your own API key. Model usage may cost money.
-- GitHub Pages must be enabled in Settings → Pages → Deploy from a branch → `main` / `/docs`.
+- Start: **October 23, 2026**; end after **November 11, 2026** in Vancouver time.
+- **Up to five distinct articles per day** (maximum **100 pages** total).
+- A first batch of five written guides is included in the `docs/guides` directory.
+- Future publishing uses GitHub Actions at **9:17 AM America/Vancouver** (including DST adjustments).
+- Pages that fail quality gates are not published; this is a ceiling, not a quota.
 
-See `PUBLISHING.md` for details.
+## How to activate
+
+1. Set the repository secret `OPENAI_API_KEY` under **Settings → Secrets and variables → Actions**. This is your separately billed API key; do not commit it into the repository.
+2. Enable **GitHub Pages** under **Settings → Pages → Deploy from a branch → main → /docs**.
+3. Check the **Actions** tab for scheduled publication. A run may be delayed or skipped by GitHub.
+
+The website address after GitHub Pages is enabled is https://aiautomationtactics.github.io/Ghostpages/.
+
+See `PUBLISHING.md` for editorial safeguards, link rules, and limitations. Search visibility is not guaranteed.
