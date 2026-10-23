@@ -12,9 +12,10 @@ Practical, reader-first guides about traffic measurement, opt-in funnels, ethica
 
 ## How to activate
 
-1. Set the repository secret `OPENAI_API_KEY` under **Settings → Secrets and variables → Actions**. This is your separately billed API key; do not commit it into the repository.
-2. Enable **GitHub Pages** under **Settings → Pages → Deploy from a branch → main → /docs**.
-3. Check the **Actions** tab for scheduled publication. A run may be delayed or skipped by GitHub.
+1. Enable **GitHub Pages** under **Settings → Pages → Deploy from a branch → main → /docs**. This is required to make the published website publicly accessible.
+2. A ChatGPT scheduled task is configured for 19 daily follow-up batches (October 24–November 11), using the connected GitHub account. Its ability to commit should be checked after the first scheduled run; results are not guaranteed.
+3. **Optional second publishing route:** add repository secret `OPENAI_API_KEY` under **Settings → Secrets and variables → Actions** to enable GitHub Actions generation. This is a separately billed API key; never commit it into the repository. The GitHub Action uses the same date/page caps and will not publish extra pages once the daily cap is met.
+4. Check GitHub **Actions**, the article list and the scheduled task results. A run may be delayed, skipped or blocked by a permission issue.
 
 The website address after GitHub Pages is enabled is https://aiautomationtactics.github.io/Ghostpages/.
 
