@@ -6,8 +6,11 @@ ROOT=Path(__file__).resolve().parents[1]
 DOCS=ROOT/"docs"
 STATE=ROOT/"editorial-state.json"
 BASE="https://aiautomationtactics.github.io/Ghostpages/"
-START=dt.datetime(2026,10,23,20,9,tzinfo=dt.timezone.utc)
-END=START+dt.timedelta(days=20)
+from zoneinfo import ZoneInfo
+ZONE=ZoneInfo("America/Vancouver")
+START_DATE=dt.date(2026,10,23)
+END_DATE=START_DATE+dt.timedelta(days=20)
+LIMIT=100
 # Curated links from previously supplied sites. Select by relevance, not link quotas.
 RESOURCES=[
 ("Free affiliate guide","https://freeaffiliateguide.vercel.app/","beginner"),
@@ -52,44 +55,106 @@ RESOURCES=[
 ]
 # Distinct topic+reader-intent inventory rather than near-duplicate page permutations.
 TOPICS=[
-("Measuring qualified referral traffic","traffic"),
-("Understanding click-through versus conversion","traffic"),
-("How to run a tiny paid-traffic experiment","traffic"),
-("Choosing a landing-page promise you can fulfill","funnel"),
-("Writing an ethical opt-in form","funnel"),
-("Planning a useful welcome email sequence","email"),
-("Understanding safelist audiences","email"),
-("Comparing Herculist and email list ownership","email"),
-("Evaluating a LeadsLeap campaign","leads"),
-("Building a simple lead magnet","leads"),
-("Using YouTube descriptions to help viewers","social"),
-("Making Pinterest pins that answer a real question","social"),
-("Answering questions usefully on Quora","social"),
-("Participating in Facebook groups without spamming","social"),
-("Planning helpful Instagram posts","social"),
-("Creating TikTok educational clips","social"),
-("Finding a narrow search intent","seo"),
-("Writing a search-friendly article outline","seo"),
-("Auditing internal links for usefulness","seo"),
-("Interpreting Search Console performance","seo"),
-("Testing AI-generated copy for accuracy","ai"),
-("Writing transparent AI-assisted affiliate disclosures","ai"),
-("Finding local small-business marketing needs","local"),
-("Comparing lead sources on quality","leads"),
-("Building a beginner affiliate content plan","beginner"),
-("Choosing an honest affiliate disclosure","beginner"),
-("Explaining attribution and tracking limitations","traffic"),
-("Avoiding misleading income claims","beginner"),
-("Assessing a marketing tool before paying","beginner"),
-("Designing a reader-first resource page","funnel"),
-]
-AUDIENCES=[
-"for first-time affiliate publishers","for a hobby newsletter",
-"for a small educational website","with a limited testing budget",
-"for a niche-specific blog","for a beginner building a mailing list",
-"for people reviewing marketing tools","for content creators tracking traffic",
-"for an audience with little prior marketing knowledge",
-"for a website improving user experience",
+("How to recognize qualified website visitors","traffic"),
+("Clicks versus conversions: a practical measurement guide","traffic"),
+("Designing a controlled paid-traffic test on a small budget","traffic"),
+("Writing a clear opt-in promise without pressure","funnel"),
+("Choosing search intent for an educational affiliate article","seo"),
+("How to calculate a landing-page opt-in rate","leads"),
+("What a bounce and an engaged visit can tell you","traffic"),
+("Creating a UTM naming convention for campaigns","traffic"),
+("Separating bot requests from real user behavior","traffic"),
+("Reading a simple weekly traffic scorecard","traffic"),
+("How to assess audience fit before buying clicks","traffic"),
+("Comparing a referral placement against social discovery","traffic"),
+("Establishing a stop rule for paid traffic","traffic"),
+("Choosing one campaign variable to test","traffic"),
+("Understanding attribution windows in plain language","traffic"),
+("Auditing a landing page for clear intent","funnel"),
+("Planning an honest call to action","funnel"),
+("Designing a useful thank-you page after signup","funnel"),
+("Setting expectations before an email opt-in","funnel"),
+("Making a lead magnet that solves one problem","funnel"),
+("Planning a three-email welcome sequence","email"),
+("Understanding unsubscribe and consent principles","email"),
+("Segmenting subscribers by the question they asked","email"),
+("Comparing broadcast mail to an owned subscriber list","email"),
+("Evaluating whether a safelist audience fits your offer","email"),
+("Writing responsible subject lines for a newsletter","email"),
+("Measuring email click quality beyond open rates","email"),
+("Cleaning an outdated signup form","email"),
+("Designing newsletter archives that help non-subscribers","email"),
+("Helping unsubscribed visitors still find the resource","email"),
+("Preparing a trustworthy review of an affiliate tool","beginner"),
+("Disclosing referral compensation near recommendations","beginner"),
+("Comparing products without inventing performance claims","beginner"),
+("Deciding what not to promote to your readers","beginner"),
+("Understanding commissions versus actual profit","beginner"),
+("Keeping a simple affiliate expense ledger","beginner"),
+("Researching audience questions before publishing","beginner"),
+("Avoiding unrealistic earnings promises in marketing copy","beginner"),
+("Creating a public about page with real editorial standards","beginner"),
+("Checking a recommendation for hidden conditions","beginner"),
+("Building an internal link map for an educational site","seo"),
+("Writing a search snippet that matches the article","seo"),
+("Understanding canonical tags for duplicate URLs","seo"),
+("Creating a sitemap without trying to force indexing","seo"),
+("Making a responsive page more readable on mobile","seo"),
+("Checking headings and page hierarchy for accessibility","seo"),
+("Recognizing thin pages before publication","seo"),
+("Updating stale posts instead of multiplying pages","seo"),
+("Writing descriptive link text for readers","seo"),
+("Separating topical clusters by reader intent","seo"),
+("Learning from Search Console queries without stuffing keywords","seo"),
+("Choosing an article title that answers a real question","seo"),
+("Adding worked examples to generic marketing advice","seo"),
+("Knowing when to combine overlapping pages","seo"),
+("Creating a simple editorial fact-check checklist","seo"),
+("Making a practical YouTube description with source links","social"),
+("Turning one community question into a useful video outline","social"),
+("Choosing Pinterest pin titles without clickbait","social"),
+("Answering Quora questions without dropping unwanted links","social"),
+("Participating respectfully in Facebook group discussions","social"),
+("Using Instagram captions for context instead of hype","social"),
+("Teaching one marketing concept in a short-form video","social"),
+("Repurposing a guide across channels without copying blindly","social"),
+("Matching a social post to the promised landing page","social"),
+("Measuring social referrals without vanity metrics","social"),
+("Assessing when an AI draft needs a subject expert","ai"),
+("Fact-checking AI-generated marketing explanations","ai"),
+("Protecting reader data while experimenting with AI tools","ai"),
+("Avoiding fabricated statistics in AI-assisted articles","ai"),
+("Testing an AI headline against the actual page","ai"),
+("Disclosing meaningful automation in an editorial workflow","ai"),
+("Detecting repetitive AI phrasing in related articles","ai"),
+("Reviewing AI-generated summaries for missing nuance","ai"),
+("Creating a source log for factual claims","ai"),
+("Separating idea generation from verified advice","ai"),
+("Using a spreadsheet to compare lead-source quality","leads"),
+("Planning a lead follow-up based on expressed interest","leads"),
+("Designing a contact form with only necessary fields","leads"),
+("Explaining what happens after someone signs up","leads"),
+("Evaluating a lead-generation landing page for trust","leads"),
+("Matching free traffic channels to a narrow audience","traffic"),
+("Recognizing mismatched traffic offers","traffic"),
+("Estimating the cost per meaningful action","traffic"),
+("Using the same measurement period across two campaigns","traffic"),
+("Learning from a campaign with no conversions","traffic"),
+("Identifying a local-business customer's top question","local"),
+("Creating a helpful local service comparison page","local"),
+("Reviewing local marketing claims for accuracy","local"),
+("Measuring qualified inquiries for a small local service","local"),
+("Creating location-specific information without doorway pages","local"),
+("Comparing newsletter growth to search growth for beginners","beginner"),
+("Creating an editorial calendar that respects quality","beginner"),
+("Deciding whether to publish or revise an article","beginner"),
+("Understanding when an affiliate link helps the reader","beginner"),
+("Designing a clear resource page without link clutter","beginner"),
+("Running a usability check on a signup flow","funnel"),
+("Writing a clear privacy note for a lead form","funnel"),
+("Measuring the visitor journey from article to next step","funnel"),
+("Planning a helpful FAQ based on actual reader questions","funnel"),
+("Reducing distractions in an educational landing page","funnel"),
 ]
 def slug(s): return re.sub("[^a-z0-9]+","-",s.lower()).strip("-")[:110]
 def esc(s): return html.escape(str(s),quote=True)
@@ -143,25 +208,26 @@ def update_catalog(pages):
     (DOCS/"robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: "+BASE+"sitemap.xml\n",encoding="utf-8")
     (DOCS/".nojekyll").touch()
 def main():
-    now=dt.datetime.now(dt.timezone.utc)
-    if not START<=now<END:
+    local_day=dt.datetime.now(ZONE).date()
+    if not START_DATE<=local_day<END_DATE:
         print("Outside 20-day window; no pages created."); return
-    if not os.getenv("OPENAI_API_KEY"):
-        print("Missing OPENAI_API_KEY secret; no pages created."); return
     state=json.loads(STATE.read_text()) if STATE.exists() else {"pages":[],"hashes":[]}
     count=len(state["pages"])
-    # 30 intents x 10 audiences = 300 first-cycle distinct topics. Do not repeat.
-    if count>=300:
-        print("Distinct preapproved editorial inventory exhausted; no filler."); return
+    day_number=(local_day-START_DATE).days
+    allowance=min(LIMIT,5*(day_number+1))
+    if count>=allowance or count>=LIMIT:
+        print("Daily or project cap already reached; no pages created."); return
+    if not os.getenv("OPENAI_API_KEY"):
+        print("Missing OPENAI_API_KEY secret; no pages created."); return
     new=[]
-    for idx in range(count,min(count+5,300)):
-        topic,category=TOPICS[idx%len(TOPICS)]
-        audience=AUDIENCES[idx//len(TOPICS)]
-        title=topic+" "+audience
+    for idx in range(count,min(count+5,allowance,LIMIT)):
+        title,category=TOPICS[idx]
+        topic=title
+        audience="for a beginner reader seeking a specific practical answer"
         path="guides/"+slug(title)+".html"
         related=[r for r in RESOURCES if r[2]==category]
         if len(related)<2: related+=[r for r in RESOURCES if r[2]=="beginner"]
-        chosen=[related[(idx//len(TOPICS))%len(related)],related[((idx//len(TOPICS))+1)%len(related)]]
+        chosen=[related[idx%len(related)],related[(idx+1)%len(related)]]
         print("Drafting",title)
         article=create_article(title,topic,audience)
         fingerprint=verify(article,set(state["hashes"])|{p[2] for p in new})
