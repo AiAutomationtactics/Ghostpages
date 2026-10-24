@@ -19,6 +19,31 @@
     {
       "title": "Choosing search intent for an educational affiliate article",
       "path": "guides/choosing-search-intent-for-an-educational-affiliate-article.html"
+    },
+    {
+      "title": "How to calculate a landing-page opt-in rate",
+      "path": "guides/how-to-calculate-a-landing-page-opt-in-rate.html",
+      "published_on": "2026-10-24"
+    },
+    {
+      "title": "What a bounce and an engaged visit can tell you",
+      "path": "guides/what-a-bounce-and-an-engaged-visit-can-tell-you.html",
+      "published_on": "2026-10-24"
+    },
+    {
+      "title": "Creating a UTM naming convention for campaigns",
+      "path": "guides/creating-a-utm-naming-convention-for-campaigns.html",
+      "published_on": "2026-10-24"
+    },
+    {
+      "title": "Separating bot requests from real user behavior",
+      "path": "guides/separating-bot-requests-from-real-user-behavior.html",
+      "published_on": "2026-10-24"
+    },
+    {
+      "title": "Reading a simple weekly traffic scorecard",
+      "path": "guides/reading-a-simple-weekly-traffic-scorecard.html",
+      "published_on": "2026-10-24"
     }
   ],
   "hashes": []
